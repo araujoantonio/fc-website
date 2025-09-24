@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
+import HeroNoGlass from './components/HeroNoGlass';
 import About from './components/About';
 import Funds from './components/Funds';
 import Acquisitions from './components/Acquisitions';
@@ -9,11 +9,11 @@ import WhyFreeborn from './components/WhyFreeborn';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 
-function App() {
+function AppExperimental() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-sand-beige to-warm-white">
       <Header />
-      <Hero />
+      <HeroNoGlass />
       <About />
       <Funds />
       <Acquisitions />
@@ -25,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default AppExperimental;
