@@ -15,7 +15,7 @@ const Funds = () => {
             <div className="bg-indigo-dye p-8 text-white">
               <div className="flex items-center mb-4">
                 <Leaf className="h-6 w-6 mr-3" />
-                <h3 className="text-xl font-thin tracking-wide">The Wellness Sanctuary Fund</h3>
+                <h3 className="text-xl font-thin tracking-wide text-white">The Wellness Sanctuary Fund</h3>
               </div>
               <p className="text-gold font-light text-sm tracking-wide">(Now Launching)</p>
             </div>
@@ -62,7 +62,7 @@ const Funds = () => {
             <div className="bg-deep-soil p-8 text-white">
               <div className="flex items-center mb-4">
                 <Mountain className="h-6 w-6 mr-3" />
-                <h3 className="text-xl font-thin tracking-wide">The Sovereign Community Fund</h3>
+                <h3 className="text-xl font-thin tracking-wide text-white">The Sovereign Community Fund</h3>
               </div>
               <p className="text-gold font-light text-sm tracking-wide">(Launching 2027)</p>
             </div>
