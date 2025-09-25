@@ -47,6 +47,10 @@ const getFallbackImage = (p: { location?: string; title?: string }) => {
   return `https://source.unsplash.com/1600x1200/?${encodeURIComponent(query || 'nature,landscape')}`;
 };
 
+// Static final-resort fallback image (stable Unsplash photo URL)
+const STATIC_FALLBACK_IMAGE =
+  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80';
+
 const Projects = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -137,12 +141,29 @@ const Projects = () => {
                   i === activeIndex ? 'scale-[1.02] shadow-xl' : 'scale-95 opacity-90',
                 ].join(' ')}
               >
-                <img src={getProjectImage(p)} alt={p.title} className="absolute inset-0 w-full h-full object-cover" loading="lazy" onError={(e) => {
-                  const img = e.currentTarget;
-                  if (img.dataset.fallbackApplied === 'true') return;
-                  img.dataset.fallbackApplied = 'true';
-                  img.src = getFallbackImage(p);
-                }} />
+                <img
+                  src={getProjectImage(p)}
+                  alt={p.title}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    // First fallback: Unsplash Source API by query
+                    if (img.dataset.fallbackApplied !== 'true') {
+                      img.dataset.fallbackApplied = 'true';
+                      img.src = getFallbackImage(p);
+                      return;
+                    }
+                    // Second fallback: static known-good image
+                    if (img.dataset.staticFallbackApplied !== 'true') {
+                      img.dataset.staticFallbackApplied = 'true';
+                      img.src = STATIC_FALLBACK_IMAGE;
+                      return;
+                    }
+                  }}
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
                 {/* Top-right location */}

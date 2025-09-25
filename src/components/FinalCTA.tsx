@@ -5,7 +5,7 @@ const FinalCTA = () => {
   return (
     <section className="py-24 bg-indigo-dye text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-thin mb-12 tracking-tight leading-tight">
+        <h2 className="text-3xl md:text-4xl font-thin mb-12 tracking-tight leading-tight text-white">
           Join us in redrawing the boundaries of what's possible.
         </h2>
         

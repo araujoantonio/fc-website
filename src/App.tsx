@@ -16,7 +16,7 @@ function AppExperimental() {
       <div className="pointer-events-none fixed inset-0 z-0 backdrop-blur-sm" />
 
       {/* Elevate content above the blur overlay */}
-      <div className="relative z-10 min-h-screen bg-gradient-to-br from-sand-beige to-warm-white">
+      <div className="relative z-10 min-h-screen bg-gradient-to-br from-dark-brown to-warm-white">
         <Header />
         <Hero />
         <About />

@@ -22,7 +22,7 @@ const Hero = () => {
           
           <h1 className="text-4xl md:text-6xl font-thin mb-6 leading-tight tracking-tight text-white">
             We Invest to Empower
-            <span className="block text-gold font-normal">Health and Sovereignty</span>
+            <span className="block text-indigo-dye font-normal">Health and Sovereignty</span>
           </h1>
           
           <p className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-white/85 font-light">

@@ -3,12 +3,12 @@ import { CheckCircle, Clock, Eye, ArrowRight } from 'lucide-react';
 
 const Acquisitions = () => {
   return (
-    <section id="acquisitions" className="py-24 bg-sand-beige">
+    <section id="acquisitions" className="py-24 bg-dark-brown">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-thin text-deep-soil mb-6 tracking-tight">Strategic Acquisitions</h2>
-      <h3 className="text-2xl font-thin text-indigo-dye mb-8 tracking-wide">Ready to Exit Your Business?</h3>
-          <p className="text-lg text-deep-soil/80 max-w-4xl mx-auto leading-relaxed font-light">
+          <h2 className="text-3xl md:text-4xl font-thin text-white mb-6 tracking-tight">Strategic Acquisitions</h2>
+      <h3 className="text-2xl font-thin text-white mb-8 tracking-wide">Ready to Exit Your Business?</h3>
+          <p className="text-lg text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
             If you're an owner ready for your next chapter, Freeborn Capital is a values-aligned buyer 
             who will honor your legacy.
           </p>

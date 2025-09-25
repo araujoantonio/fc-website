@@ -168,7 +168,7 @@ const HeroNoGlass = () => {
             {/* Keep heading in normal flow so it can move up and reveal space */}
             <h1 ref={headingRef} className="text-4xl md:text-6xl font-thin leading-tight tracking-tight text-white font-heading">
               We Invest to Empower
-              <span className="block text-gold font-normal">Health and Sovereignty</span>
+              <span className="block text-indigo-dye font-normal">Health and Sovereignty</span>
             </h1>
 
             {/* Reserve space so subheading can rise into it without overlapping */}
