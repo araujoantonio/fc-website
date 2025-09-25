@@ -1,49 +1,185 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
+// Utility easing and clamping helpers
+const clamp = (v: number, min = 0, max = 1) => Math.min(Math.max(v, min), max);
+const mapRange = (p: number, inMin: number, inMax: number) => clamp((p - inMin) / (inMax - inMin));
+const easeOutCubic = (t: number) => 1 - Math.pow(1 - clamp(t), 3);
+
 const HeroNoGlass = () => {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const stickyRef = useRef<HTMLDivElement | null>(null);
+  const headingRef = useRef<HTMLHeadingElement | null>(null);
+  const subRef = useRef<HTMLDivElement | null>(null);
+  const ctaWrapRef = useRef<HTMLDivElement | null>(null);
+  const ctaRef = useRef<HTMLButtonElement | null>(null);
+  const rafRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const el = sectionRef.current;
+    const sticky = stickyRef.current;
+    const heading = headingRef.current;
+    const sub = subRef.current;
+    const ctaWrap = ctaWrapRef.current;
+    const cta = ctaRef.current;
+
+    if (!el || !sticky || !heading || !sub || !cta || !ctaWrap) return;
+
+    // Initial styles for smoother animation
+    heading.style.willChange = 'transform, opacity';
+    sub.style.willChange = 'transform, opacity, margin-top';
+    cta.style.willChange = 'transform, opacity';
+    ctaWrap.style.willChange = 'margin-top';
+    sticky.style.willChange = 'transform';
+
+    const update = () => {
+      rafRef.current = null;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      const totalScroll = Math.max(rect.height - vh, 1); // ~100vh (200vh container - 100vh viewport)
+      const scrolled = clamp(-rect.top, 0, totalScroll);
+      const progress = scrolled / totalScroll; // 0 -> 1
+
+      if (prefersReduced) {
+        heading.style.opacity = '1';
+        heading.style.transform = 'translate3d(0,0,0)';
+        sub.style.opacity = '1';
+        sub.style.transform = 'translate3d(0,0,0)';
+        cta.style.opacity = '1';
+        cta.style.transform = 'translate3d(0,0,0)';
+        sticky.style.transform = 'translate3d(0,0,0)';
+        return;
+      }
+
+      // Heading lifts upward while subheading scrolls up into view
+      const hP = easeOutCubic(mapRange(progress, 0, 0.35));
+      const sP = easeOutCubic(mapRange(progress, 0.06, 0.52));
+      const bP = easeOutCubic(mapRange(progress, 0.3, 0.75));
+
+      // Move heading up to create space for subheading (adaptive to viewport)
+      const upShiftPx = Math.round(hP * Math.min(Math.max(vh * 0.08, 28), 56));
+      heading.style.opacity = '1';
+      heading.style.transform = `translate3d(0, ${-upShiftPx}px, 0)`;
+
+      // Subheading reveals and rises smoothly toward its resting position
+      const subShiftPx = Math.round((1 - sP) * 32);
+      sub.style.opacity = String(sP);
+      sub.style.transform = `translate3d(0, ${subShiftPx}px, 0)`;
+
+      // Keep visual balance at rest: equal gaps above and below subheading
+      const isMd = window.innerWidth >= 768;
+      const desiredGap = isMd ? 44 : 32; // px (increase overall spacing)
+      // Dynamic margin compensates for heading's upward shift and sub's interim offset
+      const dynamicTopMargin = Math.round(desiredGap - upShiftPx + subShiftPx);
+      sub.style.marginTop = `${dynamicTopMargin}px`;
+      ctaWrap.style.marginTop = `${desiredGap}px`;
+
+      // CTA enters later to maintain visual hierarchy
+      cta.style.opacity = String(bP);
+      cta.style.transform = `translate3d(0, ${Math.round((1 - bP) * 16)}px, 0)`;
+
+      // Keep sticky viewport fixed to prevent any gap below the video
+      sticky.style.transform = 'translate3d(0,0,0)';
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        rafRef.current = requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+      }
+    };
+
+    const onResize = () => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(update);
+    };
+
+    // IntersectionObserver to avoid work when not visible
+    const io = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          window.addEventListener('scroll', onScroll, { passive: true });
+          window.addEventListener('resize', onResize);
+          onResize();
+        } else {
+          window.removeEventListener('scroll', onScroll);
+          window.removeEventListener('resize', onResize);
+        }
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1] }
+    );
+
+    io.observe(el);
+    // Initial paint
+    onResize();
+
+    return () => {
+      io.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onResize);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-black text-black overflow-hidden">
-      {/* Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/hero-bg.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-      />
-      {/* Overlay gradient for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-deep-soil/40 via-deep-soil/20 to-deep-soil/60" />
-
-      {/* Content directly over the video (no glass container) */}
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h1 className="text-4xl md:text-6xl font-light mb-6 leading-tight tracking-tight text-white">
-          We Invest to Empower
-          <span className="block text-gold font-normal">Health and Sovereignty</span>
-        </h1>
-
-        <div className="mx-auto mb-10 max-w-3xl">
-          <div
-            data-slot="glass-card"
-            className="rounded-full bg-white/8 backdrop-blur-md py-6 px-8 text-white"
-          >
-            <p className="text-lg md:text-xl leading-relaxed font-light">
-              We acquire regenerative assets across the Americas — creating value through trust, technology, and modern deal structures.
-            </p>
-          </div>
+    // 200vh container to create scroll space; sticky inner keeps background fixed during this scroll
+    <section ref={sectionRef} className="relative h-[200vh] bg-deep-soil text-white overflow-visible">
+      {/* Sticky viewport */}
+      <div ref={stickyRef} className="sticky top-0 h-screen">
+        {/* Background Video */}
+        <div className="absolute inset-0 -z-10">
+          <video
+            className="absolute inset-0 w-full h-full object-cover"
+            src="/hero-bg.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          {/* Overlay gradient for readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-deep-soil/40 via-deep-soil/20 to-transparent" />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="bg-gold hover:bg-gold/90 text-black px-8 py-4 rounded-full text-base font-medium flex items-center transition-all duration-200 shadow-lg hover:shadow-xl">
-            Explore Fund
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
+        {/* Background blur layer (above video, below content) */}
+        <div className="absolute inset-0 pointer-events-none backdrop-blur-sm" />
 
-          <button className="text-white hover:bg-deep-soil hover:text-white px-8 py-4 rounded-full text-base font-medium flex items-center transition-all duration-200 backdrop-blur-md bg-white/8">
-            Apply to Exit
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
+        {/* Content directly over the video (no glass container) */}
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
+          <div className="text-center relative">
+            {/* Keep heading in normal flow so it can move up and reveal space */}
+            <h1 ref={headingRef} className="text-4xl md:text-6xl font-thin leading-tight tracking-tight text-white">
+              We Invest to Empower
+              <span className="block text-gold font-normal">Health and Sovereignty</span>
+            </h1>
+
+            {/* Reserve space so subheading can rise into it without overlapping */}
+            <div ref={subRef} className="mx-auto max-w-3xl opacity-0 mb-0 min-h-[3.25rem] md:min-h-[4rem]">
+              <div
+                data-slot="glass-card"
+                className="rounded-full bg-white/10 backdrop-blur-md py-6 px-8 text-white border border-white/15 shadow-lg"
+              >
+                <p className="text-lg md:text-xl leading-relaxed font-light">
+                  We acquire regenerative assets across the Americas — creating value through trust, technology, and modern deal structures.
+                </p>
+              </div>
+            </div>
+
+            <div ref={ctaWrapRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-0">
+              <button
+                ref={ctaRef}
+                className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full text-base font-medium flex items-center transition-colors duration-200 hover:bg-white/20 hover:border-white/30 shadow-lg opacity-0"
+              >
+                Explore Fund
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

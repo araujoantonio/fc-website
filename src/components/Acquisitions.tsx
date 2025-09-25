@@ -6,8 +6,8 @@ const Acquisitions = () => {
     <section id="acquisitions" className="py-24 bg-sand-beige">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-light text-deep-soil mb-6 tracking-tight">Strategic Acquisitions</h2>
-          <h3 className="text-2xl font-medium text-indigo-dye mb-8 tracking-wide">Ready to Exit Your Business?</h3>
+          <h2 className="text-3xl md:text-4xl font-thin text-deep-soil mb-6 tracking-tight">Strategic Acquisitions</h2>
+      <h3 className="text-2xl font-thin text-indigo-dye mb-8 tracking-wide">Ready to Exit Your Business?</h3>
           <p className="text-lg text-deep-soil/80 max-w-4xl mx-auto leading-relaxed font-light">
             If you're an owner ready for your next chapter, Freeborn Capital is a values-aligned buyer 
             who will honor your legacy.
@@ -17,19 +17,19 @@ const Acquisitions = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           <div className="text-center p-8 bg-warm-white rounded-lg hover:shadow-sm transition-all duration-200 border border-sand-beige/50">
             <CheckCircle className="h-8 w-8 text-indigo-dye mx-auto mb-4" />
-            <h4 className="text-lg font-medium text-deep-soil mb-3 tracking-wide">Simple</h4>
+            <h4 className="text-lg font-thin text-deep-soil mb-3 tracking-wide">Simple</h4>
             <p className="text-deep-soil/80 font-light">Apply online in minutes.</p>
           </div>
           
           <div className="text-center p-8 bg-warm-white rounded-lg hover:shadow-sm transition-all duration-200 border border-sand-beige/50">
             <Clock className="h-8 w-8 text-indigo-dye mx-auto mb-4" />
-            <h4 className="text-lg font-medium text-deep-soil mb-3 tracking-wide">Fast</h4>
+            <h4 className="text-lg font-thin text-deep-soil mb-3 tracking-wide">Fast</h4>
             <p className="text-deep-soil/80 font-light">We respond within 24 hours.</p>
           </div>
           
           <div className="text-center p-8 bg-warm-white rounded-lg hover:shadow-sm transition-all duration-200 border border-sand-beige/50">
             <Eye className="h-8 w-8 text-indigo-dye mx-auto mb-4" />
-            <h4 className="text-lg font-medium text-deep-soil mb-3 tracking-wide">Transparent</h4>
+            <h4 className="text-lg font-thin text-deep-soil mb-3 tracking-wide">Transparent</h4>
             <p className="text-deep-soil/80 font-light">We co-create fair, win-win terms.</p>
           </div>
         </div>
