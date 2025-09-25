@@ -2,8 +2,15 @@ import React, { useState, useEffect, useRef } from 'react';
 
 const About = () => {
   const [visibleCards, setVisibleCards] = useState<number[]>([]);
+  const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
   const sectionRef = useRef<HTMLElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  const textLines = [
+    "We are not traditional private equity",
+    "We do not exist to extract.",
+    "We exist to create and regenerate:"
+  ];
 
   const cards = [
     {
@@ -36,10 +43,21 @@ const About = () => {
       if (scrollY + windowHeight > sectionTop && scrollY < sectionTop + sectionHeight) {
         const sectionProgress = (scrollY + windowHeight - sectionTop) / (sectionHeight + windowHeight);
         
-        // Show cards progressively based on scroll progress
+        // Determine which text line to show based on scroll progress
+        let newTextIndex = 0;
+        if (sectionProgress > 0.2) newTextIndex = 1;
+        if (sectionProgress > 0.4) newTextIndex = 2;
+        
+        setCurrentTextIndex(newTextIndex);
+        
+        // Show cards much earlier in the scroll progression
         const newVisibleCards: number[] = [];
         cards.forEach((_, index) => {
-          const cardThreshold = (index + 1) / (cards.length + 1);
+          let cardThreshold = 0;
+          if (index === 0) cardThreshold = 0.1; // First card appears very early
+          if (index === 1) cardThreshold = 0.25; // Second card appears with second text
+          if (index === 2) cardThreshold = 0.35; // Third card appears much sooner
+          
           if (sectionProgress > cardThreshold) {
             newVisibleCards.push(index);
           }
@@ -53,7 +71,7 @@ const About = () => {
     handleScroll(); // Check initial state
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [cards.length]);
+  }, [cards.length, textLines.length]);
 
   return (
     <section ref={sectionRef} id="about" className="min-h-screen bg-dark-brown">
@@ -81,9 +99,18 @@ const About = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-dye/60 to-deep-soil/60 flex items-center justify-center">
                 <div className="text-center text-white p-8">
-                  <RegenerativeIcon className="h-16 w-16 mx-auto mb-4 opacity-90" />
-                  <h3 className="text-2xl font-thin mb-2">Regenerative Future</h3>
-                  <p className="text-sm opacity-90">Creating sustainable communities and businesses</p>
+                  <RegenerativeIcon className="h-16 w-16 mx-auto mb-6 opacity-90" />
+                  <h3 className="text-2xl font-thin mb-8">Regenerative Future</h3>
+                  
+                  {/* Single text line that changes on scroll */}
+                  <div className="min-h-[2rem] flex items-center justify-center">
+                    <p 
+                      key={currentTextIndex}
+                      className="text-sm font-light leading-relaxed animate-fade-in"
+                    >
+                      {textLines[currentTextIndex]}
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -91,19 +118,6 @@ const About = () => {
 
           {/* Right Side - Scrolling Content */}
           <div className="flex flex-col justify-center p-8 lg:p-16 space-y-16">
-            {/* Introduction Text */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-thin text-warm-white tracking-wide">
-                We are not traditional private equity
-              </h3>
-              <p className="text-lg text-warm-white/80 leading-relaxed font-light">
-                We do not exist to extract.
-              </p>
-              <p className="text-lg text-warm-white/80 leading-relaxed font-light">
-                <strong>We exist to create and regenerate:</strong>
-              </p>
-            </div>
-
             {/* Cards that appear on scroll */}
             <div className="space-y-12">
               {cards.map((card, index) => {

@@ -37,7 +37,7 @@ const HeroNoGlass = () => {
       rafRef.current = null;
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
-      const totalScroll = Math.max(rect.height - vh, 1); // ~100vh (200vh container - 100vh viewport)
+      const totalScroll = Math.max(rect.height - vh, 1); // ~50vh (150vh container - 100vh viewport)
       const scrolled = clamp(-rect.top, 0, totalScroll);
       const progress = scrolled / totalScroll; // 0 -> 1
 
@@ -53,9 +53,9 @@ const HeroNoGlass = () => {
       }
 
       // Heading lifts upward while subheading scrolls up into view
-      const hP = easeOutCubic(mapRange(progress, 0, 0.35));
-      const sP = easeOutCubic(mapRange(progress, 0.06, 0.52));
-      const bP = easeOutCubic(mapRange(progress, 0.3, 0.75));
+      const hP = easeOutCubic(mapRange(progress, 0, 0.45));
+      const sP = easeOutCubic(mapRange(progress, 0.08, 0.65));
+      const bP = easeOutCubic(mapRange(progress, 0.4, 0.85));
 
       // Move heading up to create space for subheading (adaptive to viewport)
       const upShiftPx = Math.round(hP * Math.min(Math.max(vh * 0.08, 28), 56));
@@ -128,8 +128,8 @@ const HeroNoGlass = () => {
   }, []);
 
   return (
-    // 200vh container to create scroll space; sticky inner keeps background fixed during this scroll
-    <section ref={sectionRef} className="relative h-[200vh] bg-deep-soil text-white overflow-visible">
+    // 150vh container to create scroll space; sticky inner keeps background fixed during this scroll
+    <section ref={sectionRef} className="relative h-[150vh] bg-deep-soil text-white overflow-visible">
       {/* Sticky viewport */}
       <div ref={stickyRef} className="sticky top-0 h-screen">
         {/* Background Video */}
@@ -160,14 +160,9 @@ const HeroNoGlass = () => {
 
             {/* Reserve space so subheading can rise into it without overlapping */}
             <div ref={subRef} className="mx-auto max-w-3xl opacity-0 mb-0 min-h-[3.25rem] md:min-h-[4rem]">
-              <div
-                data-slot="glass-card"
-                className="rounded-full bg-white/10 backdrop-blur-md py-6 px-8 text-white border border-white/15 shadow-lg"
-              >
-                <p className="text-lg md:text-xl leading-relaxed font-light">
-                  We acquire regenerative assets across the Americas — creating value through trust, technology, and modern deal structures.
-                </p>
-              </div>
+              <p className="text-lg md:text-xl leading-relaxed font-light text-white py-6 px-8">
+                We acquire regenerative assets across the Americas — creating value through trust, technology, and modern deal structures.
+              </p>
             </div>
 
             <div ref={ctaWrapRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-0">
