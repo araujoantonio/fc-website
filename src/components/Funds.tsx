@@ -50,7 +50,7 @@ const Funds = () => {
                 </p>
               </div>
               
-              <button className="w-full bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-medium flex items-center justify-center transition-all duration-200 text-sm tracking-wide">
+              <button className="w-full bg-gold hover:bg-gold/90 text-deep-soil px-6 py-3 rounded-full font-medium flex items-center justify-center transition-all duration-200 text-sm tracking-wide">
                 Explore the Wellness Sanctuary Fund
                 <ArrowRight className="ml-2 h-5 w-5" />
               </button>

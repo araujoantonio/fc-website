@@ -13,7 +13,7 @@ const FinalCTA = () => {
           <div className="p-8 bg-warm-white/5 backdrop-blur-sm rounded-lg hover:bg-warm-white/10 transition-all duration-200 border border-white/10">
             <h3 className="text-xl font-medium mb-4 tracking-wide">For Investors</h3>
             <p className="text-white/80 mb-6 font-light">Explore the Wellness Sanctuary Fund</p>
-            <button className="bg-gold hover:bg-gold/90 text-black px-6 py-3 rounded-full font-medium flex items-center mx-auto transition-all duration-200 text-sm tracking-wide">
+            <button className="bg-gold hover:bg-gold/90 text-deep-soil px-6 py-3 rounded-full font-medium flex items-center mx-auto transition-all duration-200 text-sm tracking-wide">
               Explore Fund
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>

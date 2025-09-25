@@ -41,7 +41,7 @@ const Projects = () => {
         </div>
         
         <div className="text-center">
-          <button className="bg-gold hover:bg-gold/90 text-black px-8 py-3 rounded-full font-medium flex items-center mx-auto transition-all duration-200 text-sm tracking-wide">
+          <button className="bg-gold hover:bg-gold/90 text-deep-soil px-8 py-3 rounded-full font-medium flex items-center mx-auto transition-all duration-200 text-sm tracking-wide">
             View Our Projects
             <ArrowRight className="ml-2 h-5 w-5" />
           </button>
