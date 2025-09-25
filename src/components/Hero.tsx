@@ -18,9 +18,9 @@ const Hero = () => {
       
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Glassmorphism card */}
-        <div className="mx-auto mb-10 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl p-8 sm:p-12">
+        <div className="mx-auto mb-10">
           
-          <h1 className="text-4xl md:text-6xl font-thin mb-6 leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-thin mb-6 leading-tight tracking-tight text-white">
             We Invest to Empower
             <span className="block text-gold font-normal">Health and Sovereignty</span>
           </h1>

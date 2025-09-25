@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
-import HeroNoGlass from './components/HeroNoGlass';
+import Hero from './components/Hero';
 import About from './components/About';
 import Funds from './components/Funds';
 import Acquisitions from './components/Acquisitions';
@@ -18,7 +18,7 @@ function AppExperimental() {
       {/* Elevate content above the blur overlay */}
       <div className="relative z-10 min-h-screen bg-gradient-to-br from-sand-beige to-warm-white">
         <Header />
-        <HeroNoGlass />
+        <Hero />
         <About />
         <Funds />
         <Acquisitions />

@@ -9,7 +9,7 @@ const About = () => {
   const textLines = [
     "We are not traditional private equity",
     "We do not exist to extract.",
-    "We exist to create and regenerate:"
+    "We exist to create and regenerate"
   ];
 
   const cards = [
@@ -91,22 +91,22 @@ const About = () => {
           {/* Left Side - Fixed Image */}
           <div className="lg:sticky lg:top-0 lg:h-screen flex items-center justify-center p-8">
             <div className="w-full h-96 lg:h-3/4 rounded-2xl shadow-2xl overflow-hidden relative">
-              {/* Unsplash image for regenerative/sustainable business theme */}
+              {/* Local image for the About section background */}
               <img 
-                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80"
-                alt="Lush forest landscape representing regenerative future"
+                src="/about-texture.jpg"
+                alt="Organic green textured landscape background"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-dye/60 to-deep-soil/60 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center text-white p-8">
                   <RegenerativeIcon className="h-16 w-16 mx-auto mb-6 opacity-90" />
-                  <h3 className="text-2xl font-thin mb-8">Regenerative Future</h3>
+                  <h3 className="text-2xl font-thin mb-8 text-white">Regenerative Future</h3>
                   
                   {/* Single text line that changes on scroll */}
                   <div className="min-h-[2rem] flex items-center justify-center">
                     <p 
                       key={currentTextIndex}
-                      className="text-sm font-light leading-relaxed animate-fade-in"
+                      className="text-sm font-light leading-relaxed animate-fade-in uppercase"
                     >
                       {textLines[currentTextIndex]}
                     </p>

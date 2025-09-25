@@ -132,28 +132,41 @@ const HeroNoGlass = () => {
     <section ref={sectionRef} className="relative h-[150vh] bg-deep-soil text-white overflow-visible">
       {/* Sticky viewport */}
       <div ref={stickyRef} className="sticky top-0 h-screen">
-        {/* Background Video */}
+        {/* Organic background shapes (SVG) */}
         <div className="absolute inset-0 -z-10">
-          <video
-            className="absolute inset-0 w-full h-full object-cover"
-            src="/hero-bg.mp4"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-          {/* Overlay gradient for readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-deep-soil/40 via-deep-soil/20 to-transparent" />
+          <svg className="w-full h-full" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <radialGradient id="rg1" cx="20%" cy="25%" r="60%">
+                <stop offset="0%" stopColor="#B08A2B" stopOpacity="0.12" />
+                <stop offset="100%" stopColor="#B08A2B" stopOpacity="0" />
+              </radialGradient>
+              <radialGradient id="rg2" cx="80%" cy="35%" r="50%">
+                <stop offset="0%" stopColor="#3F4F2E" stopOpacity="0.14" />
+                <stop offset="100%" stopColor="#3F4F2E" stopOpacity="0" />
+              </radialGradient>
+              <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="0%" stopColor="#1E130D" stopOpacity="0.55" />
+                <stop offset="40%" stopColor="#1E130D" stopOpacity="0.30" />
+                <stop offset="100%" stopColor="#1E130D" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+            <rect width="1440" height="900" fill="#1E130D" />
+            <rect width="1440" height="900" fill="url(#rg1)" />
+            <rect width="1440" height="900" fill="url(#rg2)" />
+            <rect width="1440" height="900" fill="url(#fade)" />
+          </svg>
         </div>
+        {/* Overlay gradient for readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-deep-soil/30 via-deep-soil/15 to-transparent" />
 
-        {/* Background blur layer (above video, below content) */}
+        {/* Background blur layer (above background shapes, below content) */}
         <div className="absolute inset-0 pointer-events-none backdrop-blur-sm" />
 
-        {/* Content directly over the video (no glass container) */}
+        {/* Content directly over the background (no glass container) */}
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
           <div className="text-center relative">
             {/* Keep heading in normal flow so it can move up and reveal space */}
-            <h1 ref={headingRef} className="text-4xl md:text-6xl font-thin leading-tight tracking-tight text-white">
+            <h1 ref={headingRef} className="text-4xl md:text-6xl font-thin leading-tight tracking-tight text-white font-heading">
               We Invest to Empower
               <span className="block text-gold font-normal">Health and Sovereignty</span>
             </h1>
@@ -168,7 +181,7 @@ const HeroNoGlass = () => {
             <div ref={ctaWrapRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-0">
               <button
                 ref={ctaRef}
-                className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full text-base font-medium flex items-center transition-colors duration-200 hover:bg-white/20 hover:border-white/30 shadow-lg opacity-0"
+                className="bg-warm-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full text-base font-medium flex items-center transition-colors duration-200 hover:bg-warm-white/20 hover:border-white/30 shadow-lg opacity-0"
               >
                 Explore Fund
                 <ArrowRight className="ml-2 h-5 w-5" />

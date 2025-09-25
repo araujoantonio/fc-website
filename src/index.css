@@ -2,17 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-warm-white text-indigo-dye font-sans;
+  }
+  h1, h2, h3, h4 {
+    @apply font-heading text-indigo-dye;
+  }
+}
+
+/* Organic subtle motion */
 @keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
   animation: fade-in 0.8s ease-out;
 }
+
+/* Fluid container widths */
+.container-fluid {
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* hide horizontal scrollbar utility for carousels */
+.scrollbar-hide{
+  -ms-overflow-style:none; /* IE and Edge */
+  scrollbar-width:none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar{display:none;}
