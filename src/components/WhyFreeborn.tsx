@@ -34,14 +34,14 @@ const WhyFreeborn = () => {
     <section className="py-24 bg-sand-beige">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-4xl font-light text-deep-soil mb-6 tracking-tight">Why Freeborn Capital</h2>
+          <h2 className="text-3xl md:text-4xl font-thin text-deep-soil mb-6 tracking-tight">Why Freeborn Capital</h2>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {features.map((feature, index) => (
             <div key={index} className="p-8 bg-warm-white rounded-lg hover:shadow-sm transition-all duration-200 border border-sand-beige/50">
               <feature.icon className="h-8 w-8 text-indigo-dye mb-6" />
-              <h3 className="text-base font-medium text-deep-soil mb-4 tracking-wide">{feature.title}</h3>
+              <h3 className="text-base font-thin text-deep-soil mb-4 tracking-wide">{feature.title}</h3>
               <p className="text-deep-soil/80 leading-relaxed font-light text-sm">{feature.description}</p>
             </div>
           ))}

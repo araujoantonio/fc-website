@@ -69,7 +69,7 @@ const HeroNoGlass = () => {
 
       // Keep visual balance at rest: equal gaps above and below subheading
       const isMd = window.innerWidth >= 768;
-      const desiredGap = isMd ? 28 : 20; // px
+      const desiredGap = isMd ? 44 : 32; // px (increase overall spacing)
       // Dynamic margin compensates for heading's upward shift and sub's interim offset
       const dynamicTopMargin = Math.round(desiredGap - upShiftPx + subShiftPx);
       sub.style.marginTop = `${dynamicTopMargin}px`;
@@ -146,17 +146,20 @@ const HeroNoGlass = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-deep-soil/40 via-deep-soil/20 to-transparent" />
         </div>
 
+        {/* Background blur layer (above video, below content) */}
+        <div className="absolute inset-0 pointer-events-none backdrop-blur-sm" />
+
         {/* Content directly over the video (no glass container) */}
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
           <div className="text-center relative">
             {/* Keep heading in normal flow so it can move up and reveal space */}
-            <h1 ref={headingRef} className="text-4xl md:text-6xl font-light leading-tight tracking-tight text-white">
+            <h1 ref={headingRef} className="text-4xl md:text-6xl font-thin leading-tight tracking-tight text-white">
               We Invest to Empower
               <span className="block text-gold font-normal">Health and Sovereignty</span>
             </h1>
 
             {/* Reserve space so subheading can rise into it without overlapping */}
-            <div ref={subRef} className="mx-auto max-w-3xl opacity-0 mb-0 min-h-[2.75rem] md:min-h-[3.5rem]">
+            <div ref={subRef} className="mx-auto max-w-3xl opacity-0 mb-0 min-h-[3.25rem] md:min-h-[4rem]">
               <div
                 data-slot="glass-card"
                 className="rounded-full bg-white/10 backdrop-blur-md py-6 px-8 text-white border border-white/15 shadow-lg"
@@ -170,7 +173,7 @@ const HeroNoGlass = () => {
             <div ref={ctaWrapRef} className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-0">
               <button
                 ref={ctaRef}
-                className="bg-transparent border border-white/50 text-white px-8 py-4 rounded-full text-base font-medium flex items-center transition-colors duration-200 hover:bg-white/10 hover:border-white/80 opacity-0"
+                className="bg-white/10 backdrop-blur-md border border-white/20 text-white px-8 py-4 rounded-full text-base font-medium flex items-center transition-colors duration-200 hover:bg-white/20 hover:border-white/30 shadow-lg opacity-0"
               >
                 Explore Fund
                 <ArrowRight className="ml-2 h-5 w-5" />

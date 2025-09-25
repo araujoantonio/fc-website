@@ -11,17 +11,23 @@ import Footer from './components/Footer';
 
 function AppExperimental() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sand-beige to-warm-white">
-      <Header />
-      <HeroNoGlass />
-      <About />
-      <Funds />
-      <Acquisitions />
-      <Projects />
-      <WhyFreeborn />
-      <FinalCTA />
-      <Footer />
-    </div>
+    <>
+      {/* Global background blur overlay */}
+      <div className="pointer-events-none fixed inset-0 z-0 backdrop-blur-sm" />
+
+      {/* Elevate content above the blur overlay */}
+      <div className="relative z-10 min-h-screen bg-gradient-to-br from-sand-beige to-warm-white">
+        <Header />
+        <HeroNoGlass />
+        <About />
+        <Funds />
+        <Acquisitions />
+        <Projects />
+        <WhyFreeborn />
+        <FinalCTA />
+        <Footer />
+      </div>
+    </>
   );
 }
 

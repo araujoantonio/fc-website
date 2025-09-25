@@ -20,7 +20,7 @@ const Hero = () => {
         {/* Glassmorphism card */}
         <div className="mx-auto mb-10 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl p-8 sm:p-12">
           
-          <h1 className="text-4xl md:text-6xl font-light mb-6 leading-tight tracking-tight">
+          <h1 className="text-4xl md:text-6xl font-thin mb-6 leading-tight tracking-tight">
             We Invest to Empower
             <span className="block text-gold font-normal">Health and Sovereignty</span>
           </h1>

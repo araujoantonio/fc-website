@@ -18,9 +18,11 @@ export default {
         'terracotta': '#7A4A33',
         // substantially deeper soil brown for gravity and contrast
         'deep-soil': '#1E130D',
+        // darker brown for rich, warm backgrounds
+        'dark-brown': '#2C1810',
       },
       fontFamily: {
-        'sans': ['Work Sans', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
+        'sans': ['Jost', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
       },
     },
   },
