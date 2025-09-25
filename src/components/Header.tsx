@@ -2,7 +2,7 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="absolute top-0 z-50 w-full">
+    <header className="fixed top-0 z-50 w-full">
       <div className="px-6 sm:px-8 lg:px-10">
         <div className="flex justify-between items-center py-6">
           <div className="flex items-center space-x-3">
@@ -20,7 +20,7 @@ const Header = () => {
             <a href="#projects" className="text-white hover:text-gold transition-colors font-medium text-sm tracking-wide">Projects</a>
           </nav>
           
-          <button className="bg-indigo-dye text-white px-6 py-2.5 rounded-full hover:bg-indigo-dye/90 transition-all duration-200 font-medium text-sm tracking-wide shadow-sm hover:shadow-md">
+          <button className="bg-transparent border border-white/50 text-white px-6 py-2.5 rounded-full transition-all duration-200 font-medium text-sm tracking-wide hover:bg-white/10 hover:border-white/80">
             Book a Call
           </button>
         </div>
