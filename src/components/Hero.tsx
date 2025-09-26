@@ -16,13 +16,13 @@ const Hero = () => {
       </video>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-thin mb-6 tracking-tight leading-tight text-white">
+      <div className="relative z-10 text-center px-8 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-thin mb-8 sm:mb-6 tracking-tight leading-tight text-white">
           Regenerative Real Estate for
           <span className="block text-white font-normal">Health and Sovereignty</span>
         </h1>
         
-        <p className="text-lg md:text-xl text-text-on-dark-muted mb-8 max-w-2xl mx-auto leading-relaxed font-light">
+        <p className="text-lg md:text-xl text-text-on-dark-muted mb-10 sm:mb-8 max-w-2xl mx-auto leading-relaxed font-light">
           We acquire and develop wellness sanctuaries and sovereign communities across the Americas, creating spaces where people can thrive in harmony with nature.
         </p>
         

@@ -35,11 +35,13 @@ const Header = () => {
               loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1',
             ].join(' ')}
           >
-            <img
-              src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/s8wxy93Zod7rS2Vs1nid/media/6368daf2d23ce5be90bdb021.png"
-              alt="Freeborn Capital"
-              className="h-8"
-            />
+            <a href="/" aria-label="Home">
+              <img
+                src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/s8wxy93Zod7rS2Vs1nid/media/6368daf2d23ce5be90bdb021.png"
+                alt="Freeborn Capital"
+                className="h-8 brightness-0 invert"
+              />
+            </a>
           </div>
 
           {/* Center: Primary Nav */}
@@ -60,7 +62,7 @@ const Header = () => {
                 href={item.href}
                 className="relative text-white/90 hover:text-text-accent transition-colors font-medium text-sm tracking-wide"
               >
-                <span className="relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:bg-gradient-to-r after:from-gold/80 after:to-transparent">
+                <span className="relative">
                   {item.label}
                 </span>
               </a>
