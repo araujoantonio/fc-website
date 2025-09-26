@@ -41,7 +41,10 @@ const Header = () => {
               <img
                 src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/s8wxy93Zod7rS2Vs1nid/media/6368daf2d23ce5be90bdb021.png"
                 alt="Freeborn Capital"
-                className="h-8 brightness-0 invert"
+                className={[
+                  'h-8 transition-all duration-500',
+                  scrolled ? '' : 'brightness-0 invert'
+                ].join(' ')}
               />
             </a>
           </div>
@@ -62,7 +65,10 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="relative text-white/90 hover:text-text-accent transition-colors font-medium text-sm tracking-wide"
+                className={[
+                  'relative hover:text-text-accent transition-colors font-medium text-sm tracking-wide',
+                  scrolled ? 'text-black/90' : 'text-white/90'
+                ].join(' ')}
               >
                 <span className="relative">
                   {item.label}
@@ -76,8 +82,10 @@ const Header = () => {
             <button
               onClick={() => navigate('/book-call')}
               className={[
-                'relative bg-transparent border border-white/40 text-white px-5 py-2.5 rounded-full transition-colors duration-300 font-medium text-sm tracking-wide cursor-pointer',
-                'hover:bg-white/10 hover:border-white/60',
+                'relative bg-transparent px-5 py-2.5 rounded-full transition-colors duration-300 font-medium text-sm tracking-wide cursor-pointer',
+                scrolled 
+                  ? 'border border-black/40 text-black hover:bg-black/10 hover:border-black/60'
+                  : 'border border-white/40 text-white hover:bg-white/10 hover:border-white/60',
                 loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1',
               ].join(' ')}
               aria-label="Book a Call"
@@ -87,7 +95,12 @@ const Header = () => {
 
             {/* Mobile toggle */}
             <button
-              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors"
+              className={[
+                'md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full transition-colors',
+                scrolled
+                  ? 'bg-black/10 border border-black/20 text-black hover:bg-black/20'
+                  : 'bg-white/10 border border-white/20 text-white hover:bg-white/20'
+              ].join(' ')}
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               onClick={() => setMenuOpen((v) => !v)}
             >
