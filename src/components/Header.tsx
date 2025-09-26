@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [loaded, setLoaded] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoaded(true);
@@ -72,8 +74,9 @@ const Header = () => {
           {/* Right: CTA + Mobile Menu Toggle */}
           <div className="flex items-center space-x-3">
             <button
+              onClick={() => navigate('/book-call')}
               className={[
-                'relative bg-transparent border border-white/40 text-white px-5 py-2.5 rounded-full transition-colors duration-300 font-medium text-sm tracking-wide',
+                'relative bg-transparent border border-white/40 text-white px-5 py-2.5 rounded-full transition-colors duration-300 font-medium text-sm tracking-wide cursor-pointer',
                 'hover:bg-white/10 hover:border-white/60',
                 loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1',
               ].join(' ')}
@@ -125,7 +128,10 @@ const Header = () => {
                 </div>
                 <div className="pt-3">
                   <button
-                    onClick={() => setMenuOpen(false)}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate('/book-call');
+                    }}
                     className="w-full relative bg-indigo-dye/5 border border-indigo-dye/20 text-indigo-dye px-5 py-3 rounded-full transition-colors duration-300 font-medium text-sm tracking-wide hover:bg-indigo-dye/10"
                   >
                     Book a Call

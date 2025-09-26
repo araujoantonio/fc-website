@@ -10,6 +10,7 @@ import WhyFreeborn from './components/WhyFreeborn';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import WellnessFund from './components/WellnessFund';
+import BookCall from './components/BookCall';
 
 function AppExperimental() {
   return (
@@ -33,6 +34,7 @@ function AppExperimental() {
             </>
           } />
           <Route path="/wellness-fund" element={<WellnessFund />} />
+          <Route path="/book-call" element={<BookCall />} />
         </Routes>
         <Footer />
       </div>
