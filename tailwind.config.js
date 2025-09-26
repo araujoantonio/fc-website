@@ -4,21 +4,40 @@ export default {
   theme: {
     extend: {
       colors: {
-        // softened neutral background with a warm, parchment tone
+        // Primary Background Colors
+        primary: {
+          'dark-brown': '#2C1810',    // Primary dark background
+          'dark-blue': '#223138',     // Primary dark blue background (indigo-dye)
+          'light': '#F6F0E8',         // Light background (warm-white)
+          'contrast': '#CBB899',      // Light contrast background (sand-beige)
+        },
+        
+        // Text Colors - optimized for readability
+        text: {
+          'on-dark': '#FFFFFF',           // Pure white text on dark backgrounds for maximum contrast
+          'on-light': '#1E130D',          // Dark text on light backgrounds (deep-soil)
+          'on-dark-muted': '#CBB899',     // Muted text on dark backgrounds
+          'on-light-muted': '#7A4A33',    // Muted text on light backgrounds (terracotta)
+          'accent': '#B08A2B',            // Accent text color (gold)
+          'on-gold': '#2C1810',           // Dark text on gold/interactive-primary backgrounds
+        },
+        
+        // Interactive Elements
+        interactive: {
+          'primary': '#B08A2B',       // Primary buttons/links (gold)
+          'primary-hover': '#8A6B22', // Darker gold for hover
+          'secondary': '#223138',     // Secondary buttons (dark-blue)
+          'secondary-hover': '#1A272C', // Darker blue for hover
+        },
+        
+        // Legacy color names (for backward compatibility)
         'warm-white': '#F6F0E8',
-        // desaturated charcoal-blue to feel grounded and serious
         'indigo-dye': '#223138',
-        // muted ochre for subtle, professional accenting
         'gold': '#B08A2B',
-        // deeper moss green for a nature-forward tone
         'earth-green': '#3F4F2E',
-        // darker sand beige to harmonize with deeper browns
         'sand-beige': '#CBB899',
-        // significantly darkened terracotta for a richer clay tone
         'terracotta': '#7A4A33',
-        // substantially deeper soil brown for gravity and contrast
         'deep-soil': '#1E130D',
-        // darker brown for rich, warm backgrounds
         'dark-brown': '#2C1810',
       },
       fontFamily: {

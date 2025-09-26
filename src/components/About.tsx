@@ -74,15 +74,14 @@ const About = () => {
   }, [cards.length, textLines.length]);
 
   return (
-    <section ref={sectionRef} id="about" className="min-h-screen bg-dark-brown">
-      <div className="max-w-7xl mx-auto">
-        {/* Header Section */}
-        <div className="text-center py-20 px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-thin text-warm-white mb-6 tracking-tight">
-            About Freeborn Capital
+    <section ref={sectionRef} id="about" className="min-h-screen bg-primary-dark-brown">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-4xl font-thin text-text-on-dark mb-6 tracking-tight">
+            Regenerative Real Estate Investment
           </h2>
-          <p className="text-lg text-warm-white/80 max-w-3xl mx-auto leading-relaxed font-light">
-            At Freeborn Capital, we believe business is the most powerful mechanism for creating a regenerative future.
+          <p className="text-lg text-text-on-dark-muted max-w-3xl mx-auto leading-relaxed font-light">
+            We specialize in acquiring and developing wellness sanctuaries and sovereign communities that prioritize regeneration, community, and conscious living.
           </p>
         </div>
 
@@ -135,17 +134,17 @@ const About = () => {
                     }`}
                     style={{ transitionDelay: `${index * 200}ms` }}
                   >
-                    <div className="flex items-start space-x-6 p-8 bg-warm-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-sand-beige/50">
+                    <div className="flex items-start space-x-6 p-8 bg-primary-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-primary-contrast/50">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-indigo-dye/10 rounded-lg flex items-center justify-center">
-                          <Icon className="h-6 w-6 text-indigo-dye" />
+                        <div className="w-12 h-12 bg-primary-dark-blue/10 rounded-lg flex items-center justify-center">
+                          <Icon className="h-6 w-6 text-primary-dark-blue" />
                         </div>
                       </div>
-                      <div>
-                        <h4 className="font-thin text-deep-soil mb-3 text-lg tracking-wide">
+                      <div className="flex-1">
+                        <h4 className="font-thin text-text-on-light mb-3 text-lg tracking-wide">
                           {card.title}
                         </h4>
-                        <p className="text-deep-soil/80 leading-relaxed font-light">
+                        <p className="text-text-on-light-muted leading-relaxed font-light">
                           {card.description}
                         </p>
                       </div>
@@ -161,7 +160,7 @@ const About = () => {
                 ? 'translate-y-0 opacity-100' 
                 : 'translate-y-8 opacity-0'
             }`}>
-              <div className="bg-indigo-dye text-white p-8 rounded-xl shadow-lg">
+              <div className="bg-primary-dark-blue text-text-on-dark p-8 rounded-xl shadow-lg">
                 <p className="text-lg font-light leading-relaxed">
                   Our acquisitions prove that capital, when freed from old paradigms, 
                   can empower both investors and communities.

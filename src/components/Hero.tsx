@@ -1,47 +1,40 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-deep-soil text-white overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-primary-dark-brown text-text-on-dark overflow-hidden">
       {/* Background Video */}
       <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/hero-bg.mp4"
         autoPlay
         muted
         loop
         playsInline
-      />
-      {/* Overlay gradient for readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-deep-soil/40 via-deep-soil/20 to-deep-soil/60" />
-      
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Glassmorphism card */}
-        <div className="mx-auto mb-10">
-          
-          <h1 className="text-4xl md:text-6xl font-thin mb-6 leading-tight tracking-tight text-white">
-            We Invest to Empower
-            <span className="block text-indigo-dye font-normal">Health and Sovereignty</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl mb-10 max-w-4xl mx-auto leading-relaxed text-white/85 font-light">
-            Freeborn Capital acquires regenerative assets and aligned businesses across Central & South America. 
-            We create value outside the old banking paradigm — through trust, technology, and creative deal structures 
-            that feel like modern business magic.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="bg-gold hover:bg-gold/90 text-deep-soil px-8 py-4 rounded-full text-base font-medium flex items-center transition-all duration-200 shadow-lg hover:shadow-xl">
-              Explore the Wellness Sanctuary Fund
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-            
-            <button className="border border-white/40 text-white hover:bg-white hover:text-indigo-dye px-8 py-4 rounded-full text-base font-medium flex items-center transition-all duration-200 backdrop-blur-sm">
-              Apply to Exit Your Business
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </button>
-          </div>
+        className="absolute inset-0 w-full h-full object-cover opacity-30"
+      >
+        <source src="/hero-bg.mp4" type="video/mp4" />
+      </video>
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-thin mb-6 tracking-tight leading-tight text-white">
+          Regenerative Real Estate for
+          <span className="block text-white font-normal">Health and Sovereignty</span>
+        </h1>
+        
+        <p className="text-lg md:text-xl text-text-on-dark-muted mb-8 max-w-2xl mx-auto leading-relaxed font-light">
+          We acquire and develop wellness sanctuaries and sovereign communities across the Americas, creating spaces where people can thrive in harmony with nature.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button className="bg-interactive-primary hover:bg-interactive-primary-hover text-text-on-gold px-8 py-4 rounded-full text-base font-medium flex items-center transition-all duration-200 shadow-lg hover:shadow-xl">
+            Explore Our Fund
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </button>
+          <button className="border border-white/40 text-text-on-dark hover:bg-white hover:text-primary-dark-blue px-8 py-4 rounded-full text-base font-medium flex items-center transition-all duration-200 backdrop-blur-sm">
+            Apply to Exit
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </button>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,6 +9,7 @@ import Projects from './components/Projects';
 import WhyFreeborn from './components/WhyFreeborn';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
+import WellnessFund from './components/WellnessFund';
 
 function AppExperimental() {
   return (
@@ -18,13 +20,20 @@ function AppExperimental() {
       {/* Elevate content above the blur overlay */}
       <div className="relative z-10 min-h-screen bg-gradient-to-br from-dark-brown to-warm-white">
         <Header />
-        <Hero />
-        <About />
-        <Funds />
-        <Acquisitions />
-        <Projects />
-        <WhyFreeborn />
-        <FinalCTA />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <Hero />
+              <About />
+              <Funds />
+              <Acquisitions />
+              <Projects />
+              <WhyFreeborn />
+              <FinalCTA />
+            </>
+          } />
+          <Route path="/wellness-fund" element={<WellnessFund />} />
+        </Routes>
         <Footer />
       </div>
     </>

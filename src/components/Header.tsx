@@ -23,7 +23,7 @@ const Header = () => {
         className={[
           'relative px-6 sm:px-8 lg:px-10 transition-all duration-500',
           scrolled
-            ? 'bg-warm-white/85 border-b border-indigo-dye/10 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.15)]'
+            ? 'bg-warm-white/85 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.15)]'
             : 'bg-transparent',
         ].join(' ')}
       >
@@ -58,7 +58,7 @@ const Header = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="relative text-indigo-dye/80 hover:text-gold transition-colors font-medium text-sm tracking-wide"
+                className="relative text-white/90 hover:text-text-accent transition-colors font-medium text-sm tracking-wide"
               >
                 <span className="relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-full after:scale-x-0 hover:after:scale-x-100 after:origin-left after:transition-transform after:bg-gradient-to-r after:from-gold/80 after:to-transparent">
                   {item.label}
@@ -71,8 +71,8 @@ const Header = () => {
           <div className="flex items-center space-x-3">
             <button
               className={[
-                'relative bg-transparent border border-indigo-dye/30 text-indigo-dye px-5 py-2.5 rounded-full transition-colors duration-300 font-medium text-sm tracking-wide',
-                'hover:bg-indigo-dye/5 hover:border-indigo-dye/50',
+                'relative bg-transparent border border-white/40 text-white px-5 py-2.5 rounded-full transition-colors duration-300 font-medium text-sm tracking-wide',
+                'hover:bg-white/10 hover:border-white/60',
                 loaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1',
               ].join(' ')}
               aria-label="Book a Call"
@@ -82,7 +82,7 @@ const Header = () => {
 
             {/* Mobile toggle */}
             <button
-              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full bg-indigo-dye/5 border border-indigo-dye/10 text-indigo-dye hover:bg-indigo-dye/10 transition-colors"
+              className="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-colors"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               onClick={() => setMenuOpen((v) => !v)}
             >

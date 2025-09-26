@@ -4,27 +4,39 @@ import { MapPin, ArrowRight, ArrowLeft } from 'lucide-react';
 const projects = [
   {
     title: 'Lomas de Atitlán',
-    location: 'Guatemala',
+    location: 'Lake Atitlán, Guatemala',
     image:
       'https://images.unsplash.com/photo-1549887534-1541e9323e49?q=80&w=1600&auto=format&fit=crop',
   },
   {
-    title: 'Maestro Valley',
-    location: 'Guatemala',
-    image:
-      'https://images.unsplash.com/photo-1523805009345-7448845a9e53?q=80&w=1600&auto=format&fit=crop',
-  },
-  {
     title: 'Sacred Valley Retreat',
-    location: 'Peru',
+    location: 'Sacred Valley, Peru',
     image:
       'https://images.unsplash.com/photo-1528821154947-1aa3d1f1bb59?q=80&w=1600&auto=format&fit=crop',
   },
   {
     title: 'Diamante Sanctuary',
-    location: 'Costa Rica',
+    location: 'Diamante Valley, Costa Rica',
     image:
       'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1600&auto=format&fit=crop',
+  },
+  {
+    title: 'Uvita Wellness Hub',
+    location: 'Uvita, Costa Rica',
+    image:
+      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1600&auto=format&fit=crop',
+  },
+  {
+    title: 'Bocas Regenerative Resort',
+    location: 'Bocas del Toro, Panama',
+    image:
+      'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1600&auto=format&fit=crop',
+  },
+  {
+    title: 'Boquete Mountain Sanctuary',
+    location: 'Boquete, Panama',
+    image:
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1600&auto=format&fit=crop',
   },
 ];
 
