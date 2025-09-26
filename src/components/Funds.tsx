@@ -86,10 +86,13 @@ const Funds = () => {
                 </ul>
               </div>
               
-              <button className="w-full bg-interactive-primary hover:bg-interactive-primary-hover text-text-on-gold px-6 py-3 rounded-full font-medium flex items-center justify-center transition-all duration-200 text-sm tracking-wide">
+              <Link 
+                to="/sovereign-fund"
+                className="w-full bg-interactive-primary hover:bg-interactive-primary-hover text-text-on-gold px-6 py-3 rounded-full font-medium flex items-center justify-center transition-all duration-200 text-sm tracking-wide"
+              >
                 Learn About the Sovereign Community Fund
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
