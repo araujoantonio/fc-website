@@ -15,28 +15,10 @@ const projects = [
       'https://images.unsplash.com/photo-1528821154947-1aa3d1f1bb59?q=80&w=1600&auto=format&fit=crop',
   },
   {
-    title: 'Diamante Sanctuary',
+    title: 'Future Project',
     location: 'Diamante Valley, Costa Rica',
     image:
-      'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1600&auto=format&fit=crop',
-  },
-  {
-    title: 'Uvita Wellness Hub',
-    location: 'Uvita, Costa Rica',
-    image:
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=1600&auto=format&fit=crop',
-  },
-  {
-    title: 'Bocas Regenerative Resort',
-    location: 'Bocas del Toro, Panama',
-    image:
-      'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1600&auto=format&fit=crop',
-  },
-  {
-    title: 'Boquete Mountain Sanctuary',
-    location: 'Boquete, Panama',
-    image:
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1600&auto=format&fit=crop',
+      'https://i.pinimg.com/1200x/c8/7a/72/c87a7233452b8f4d27e9da1b2d3ef24d.jpg',
   },
 ];
 
@@ -179,10 +161,12 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-deep-soil/60 via-deep-soil/10 to-transparent" />
 
                 {/* Top-right location */}
-                <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm text-indigo-dye text-xs font-medium px-3 py-1 rounded-full flex items-center gap-1">
-                  <MapPin className="h-3.5 w-3.5" />
-                  <span>{p.location}</span>
-                </div>
+                {p.title !== 'Future Project' && (
+                  <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm text-indigo-dye text-xs font-medium px-3 py-1 rounded-full flex items-center gap-1">
+                    <MapPin className="h-3.5 w-3.5" />
+                    <span>{p.location}</span>
+                  </div>
+                )}
 
                 {/* Bottom content */}
                 <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">

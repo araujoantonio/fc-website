@@ -2,17 +2,34 @@ import React, { useState, useEffect } from 'react';
 
 const BookCall = () => {
   const [loaded, setLoaded] = useState(false);
+  const [scriptLoaded, setScriptLoaded] = useState(false);
 
   useEffect(() => {
     setLoaded(true);
+    
+    // Load the form embed script
+    const script = document.createElement('script');
+    script.src = 'https://link.growthstar.app/js/form_embed.js';
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = () => setScriptLoaded(true);
+    document.head.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      const existingScript = document.querySelector('script[src="https://link.growthstar.app/js/form_embed.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
   }, []);
 
   return (
     <section className="min-h-screen bg-primary-dark-brown">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-40">
         {/* Header Section */}
         <div
-          className={`text-center mb-20 transition-all duration-1000 ease-out ${
+          className={`text-center mb-32 transition-all duration-1000 ease-out ${
             loaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
@@ -81,36 +98,7 @@ const BookCall = () => {
               </div>
             </div>
 
-            {/* Contact info */}
-            <div
-              className={`transition-all duration-1000 ease-out ${
-                loaded ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-              }`}
-              style={{ transitionDelay: '300ms' }}
-            >
-              <div className="bg-primary-light/5 p-6 rounded-xl border border-primary-contrast/10">
-                <h3 className="text-lg font-thin text-text-on-dark mb-3 tracking-wide">
-                  Questions Before Scheduling?
-                </h3>
-                <p className="text-text-on-dark-muted font-light mb-4">
-                  Feel free to reach out directly if you have specific questions about our investment philosophy or current opportunities.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a
-                    href="mailto:hello@freeborncapital.com"
-                    className="flex-1 text-center px-6 py-3 bg-transparent border border-text-on-dark/30 text-text-on-dark rounded-full hover:bg-text-on-dark/10 transition-colors font-medium text-sm tracking-wide"
-                  >
-                    Email Us
-                  </a>
-                  <a
-                    href="tel:+1234567890"
-                    className="flex-1 text-center px-6 py-3 bg-gold/20 border border-gold/40 text-text-on-dark rounded-full hover:bg-gold/30 transition-colors font-medium text-sm tracking-wide"
-                  >
-                    Call Us
-                  </a>
-                </div>
-              </div>
-            </div>
+
           </div>
 
           {/* Right Side - Calendar Widget */}
@@ -121,27 +109,43 @@ const BookCall = () => {
               }`}
               style={{ transitionDelay: '400ms' }}
             >
-              <div className="bg-primary-light/10 p-8 rounded-xl border border-primary-contrast/20 min-h-[600px] flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CalendarIcon className="h-8 w-8 text-gold" />
-                  </div>
-                  <h3 className="text-xl font-thin text-text-on-dark mb-4 tracking-wide">
-                    Calendar Widget Placeholder
-                  </h3>
-                  <p className="text-text-on-dark-muted font-light mb-6">
-                    Your calendar booking widget will be embedded here. This could be Calendly, Acuity Scheduling, or any other booking platform you prefer.
-                  </p>
-                  <div className="bg-primary-dark-blue/10 p-6 rounded-lg border border-primary-dark-blue/20">
-                    <p className="text-sm text-text-on-dark-muted font-light">
-                      <strong className="text-text-on-dark">Integration Ready:</strong><br />
-                      Replace this placeholder with your preferred calendar widget embed code.
-                    </p>
-                  </div>
-                </div>
+              <div className="min-h-[600px] flex items-center justify-center">
+                <iframe 
+                  src="https://link.growthstar.app/widget/booking/dohgQ77zRLQI5gZBnBLN" 
+                  style={{
+                    width: '100%',
+                    border: 'none',
+                    overflow: 'hidden',
+                    minHeight: '600px'
+                  }}
+                  scrolling="no" 
+                  id="dohgQ77zRLQI5gZBnBLN_1758912373936"
+                  title="Book a Call Calendar Widget"
+                />
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Contact info - moved below grid */}
+        <div
+          className={`mt-20 text-center transition-all duration-1000 ease-out ${
+            loaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+          }`}
+          style={{ transitionDelay: '500ms' }}
+        >
+          <h3 className="text-lg font-thin text-text-on-dark mb-3 tracking-wide">
+            Questions Before Scheduling?
+          </h3>
+          <p className="text-text-on-dark-muted font-light mb-6 max-w-2xl mx-auto">
+            Feel free to reach out directly if you have specific questions about our investment philosophy or current opportunities.
+          </p>
+          <a
+            href="mailto:hello@freeborncapital.com"
+            className="inline-block px-8 py-3 bg-transparent border border-text-on-dark/30 text-text-on-dark rounded-full hover:bg-text-on-dark/10 transition-colors font-medium text-sm tracking-wide"
+          >
+            Email Us
+          </a>
         </div>
       </div>
     </section>

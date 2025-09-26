@@ -10,7 +10,9 @@ import WhyFreeborn from './components/WhyFreeborn';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import WellnessFund from './components/WellnessFund';
+import SovereignFund from './components/SovereignFund';
 import BookCall from './components/BookCall';
+import ApplyToExit from './components/ApplyToExit';
 
 function AppExperimental() {
   return (
@@ -34,7 +36,9 @@ function AppExperimental() {
             </>
           } />
           <Route path="/wellness-fund" element={<WellnessFund />} />
+          <Route path="/sovereign-fund" element={<SovereignFund />} />
           <Route path="/book-call" element={<BookCall />} />
+          <Route path="/apply-to-exit" element={<ApplyToExit />} />
         </Routes>
         <Footer />
       </div>
