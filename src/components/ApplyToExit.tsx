@@ -40,7 +40,14 @@ const ApplyToExit = () => {
             <p className="text-xl text-text-on-dark-muted mb-8 font-light">
               Click to begin your Exit...
             </p>
-            <button className="bg-interactive-primary hover:bg-interactive-primary-hover text-text-on-gold px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button 
+              onClick={() => {
+                document.getElementById('application-form')?.scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+              className="bg-interactive-primary hover:bg-interactive-primary-hover text-text-on-gold px-8 py-4 rounded-lg text-lg font-medium transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
               Start Application
             </button>
           </div>
@@ -155,18 +162,36 @@ const ApplyToExit = () => {
           </div>
         </div>
 
-        {/* Final CTA */}
-        <div className="text-center mt-20">
+        {/* Acquisition Application Form */}
+        <div id="application-form" className="text-center mt-20">
           <div className="bg-primary-dark-brown border-2 border-interactive-primary rounded-2xl p-12 shadow-2xl">
             <h3 className="text-3xl md:text-4xl font-thin text-text-on-dark mb-6 tracking-tight">
-              Start your Business Exit by completing the form below...
-            </h3>
-            <h4 className="text-2xl font-thin text-text-on-dark-muted mb-8 tracking-wide">
               Acquisition Application
-            </h4>
-            <button className="bg-interactive-primary hover:bg-interactive-primary-hover text-text-on-gold px-12 py-6 rounded-lg text-xl font-medium transition-all duration-300 transform hover:scale-105 shadow-lg">
-              Begin Application
-            </button>
+            </h3>
+            <p className="text-xl text-text-on-dark-muted mb-8 font-light">
+              Complete the form below to start your business exit process
+            </p>
+            
+            {/* Embedded Form */}
+            <div className="bg-white rounded-lg p-4 shadow-inner">
+              <iframe 
+                src="https://link.growthstar.app/widget/form/xdcFN8ZUNpfwqbA4r9S8" 
+                style={{width: '100%', height: '598px', border: 'none', borderRadius: '4px'}}
+                id="inline-xdcFN8ZUNpfwqbA4r9S8" 
+                data-layout="{'id':'INLINE'}" 
+                data-trigger-type="alwaysShow" 
+                data-trigger-value="" 
+                data-activation-type="alwaysActivated" 
+                data-activation-value="" 
+                data-deactivation-type="neverDeactivate" 
+                data-deactivation-value="" 
+                data-form-name="Step 1 Acquisition Intake" 
+                data-height="598" 
+                data-layout-iframe-id="inline-xdcFN8ZUNpfwqbA4r9S8" 
+                data-form-id="xdcFN8ZUNpfwqbA4r9S8" 
+                title="Step 1 Acquisition Intake"
+              />
+            </div>
           </div>
         </div>
       </div>

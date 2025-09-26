@@ -1,7 +1,10 @@
 import React from 'react';
 import { ArrowRight, Phone } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const FinalCTA = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="py-24 bg-indigo-dye text-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -13,7 +16,10 @@ const FinalCTA = () => {
           <div className="p-8 bg-warm-white/5 backdrop-blur-sm rounded-lg hover:bg-warm-white/10 transition-all duration-200 border border-white/10">
             <h3 className="text-xl font-thin mb-4 tracking-wide text-white">For Investors</h3>
             <p className="text-white/80 mb-6 font-light">Explore the Wellness Sanctuary Fund</p>
-            <button className="bg-gold hover:bg-gold/90 text-deep-soil px-6 py-3 rounded-full font-medium flex items-center mx-auto transition-all duration-200 text-sm tracking-wide">
+            <button 
+              onClick={() => navigate('/wellness-fund')}
+              className="bg-gold hover:bg-gold/90 text-deep-soil px-6 py-3 rounded-full font-medium flex items-center mx-auto transition-all duration-200 text-sm tracking-wide"
+            >
               Explore Fund
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>
@@ -22,14 +28,20 @@ const FinalCTA = () => {
           <div className="p-8 bg-warm-white/5 backdrop-blur-sm rounded-lg hover:bg-warm-white/10 transition-all duration-200 border border-white/10">
             <h3 className="text-xl font-thin mb-4 tracking-wide text-white">For Business Owners</h3>
             <p className="text-white/80 mb-6 font-light">Apply to Exit with Freeborn Capital</p>
-            <button className="bg-white hover:bg-sand-beige text-indigo-dye px-6 py-3 rounded-full font-medium flex items-center mx-auto transition-all duration-200 text-sm tracking-wide">
+            <button 
+              onClick={() => navigate('/apply-to-exit')}
+              className="bg-white hover:bg-sand-beige text-indigo-dye px-6 py-3 rounded-full font-medium flex items-center mx-auto transition-all duration-200 text-sm tracking-wide"
+            >
               Apply to Exit
               <ArrowRight className="ml-2 h-5 w-5" />
             </button>
           </div>
         </div>
         
-        <button className="bg-warm-white text-indigo-dye hover:bg-sand-beige px-8 py-4 rounded-full text-base font-medium flex items-center mx-auto transition-all duration-200 shadow-lg hover:shadow-xl tracking-wide">
+        <button 
+          onClick={() => navigate('/book-call')}
+          className="bg-warm-white text-indigo-dye hover:bg-sand-beige px-8 py-4 rounded-full text-base font-medium flex items-center mx-auto transition-all duration-200 shadow-lg hover:shadow-xl tracking-wide"
+        >
           <Phone className="mr-3 h-6 w-6" />
           Book a Call with Freeborn Capital
         </button>

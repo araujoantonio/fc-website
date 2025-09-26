@@ -13,6 +13,7 @@ import WellnessFund from './components/WellnessFund';
 import SovereignFund from './components/SovereignFund';
 import BookCall from './components/BookCall';
 import ApplyToExit from './components/ApplyToExit';
+import ScrollToTop from './components/ScrollToTop';
 
 function AppExperimental() {
   return (
@@ -22,6 +23,7 @@ function AppExperimental() {
 
       {/* Elevate content above the blur overlay */}
       <div className="relative z-10 min-h-screen bg-gradient-to-br from-dark-brown to-warm-white">
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={
