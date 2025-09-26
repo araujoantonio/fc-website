@@ -3,16 +3,14 @@ import { MapPin, ArrowRight, ArrowLeft } from 'lucide-react';
 
 const projects = [
   {
-    title: 'Lomas de Atitlán',
+    title: 'Loma de Atitlán',
     location: 'Lake Atitlán, Guatemala',
-    image:
-      'https://images.unsplash.com/photo-1549887534-1541e9323e49?q=80&w=1600&auto=format&fit=crop',
+    image: '/loma.jpg',
   },
   {
-    title: 'Sacred Valley Retreat',
-    location: 'Sacred Valley, Peru',
-    image:
-      'https://images.unsplash.com/photo-1528821154947-1aa3d1f1bb59?q=80&w=1600&auto=format&fit=crop',
+    title: 'Vilas at Loma',
+    location: 'Lake Atitlán, Guatemala',
+    image: '/vila.png',
   },
   {
     title: 'Future Project',
@@ -123,16 +121,18 @@ const Projects = () => {
           {/* Horizontal carousel */}
           <div
             ref={containerRef}
-            className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+            className="flex gap-6 overflow-x-auto pt-8 pb-16 px-4 snap-x snap-mandatory scrollbar-hide"
             style={{ scrollBehavior: 'smooth' }}
           >
             {projects.map((p, i) => (
               <div
                 key={i}
                 className={[
-                  'snap-center shrink-0 rounded-3xl overflow-hidden relative shadow-lg transition-all duration-500',
+                  'snap-center shrink-0 rounded-3xl overflow-hidden relative transition-all duration-500 mx-2 my-4',
                   'w-[260px] h-[380px] sm:w-[340px] sm:h-[440px] md:w-[420px] md:h-[500px]',
-                  i === activeIndex ? 'scale-[1.02] shadow-xl' : 'scale-95 opacity-90',
+                  i === activeIndex 
+                    ? 'scale-[1.02] shadow-2xl shadow-black/20' 
+                    : 'scale-95 opacity-90 shadow-lg shadow-black/10',
                 ].join(' ')}
               >
                 <img
@@ -195,13 +195,7 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* View all CTA */}
-        <div className="text-center mt-12">
-          <button className="bg-gold hover:bg-gold/90 text-deep-soil px-8 py-3 rounded-full font-medium inline-flex items-center transition-all duration-200 text-sm tracking-wide">
-            View Our Projects
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </button>
-        </div>
+
       </div>
     </section>
   );
