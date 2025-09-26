@@ -164,7 +164,7 @@ const Projects = () => {
                     }
                   }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-deep-soil/60 via-deep-soil/10 to-transparent" />
 
                 {/* Top-right location */}
                 <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm text-indigo-dye text-xs font-medium px-3 py-1 rounded-full flex items-center gap-1">

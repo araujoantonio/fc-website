@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-16">
+    <footer className="bg-deep-soil text-white py-16">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center">
           <div className="flex items-center space-x-3 mb-8">
@@ -13,12 +13,12 @@ const Footer = () => {
             />
           </div>
           
-          <p className="text-gray-400 text-center font-light">
+          <p className="text-warm-white/70 text-center font-light">
             We Invest to Empower Health and Sovereignty.
           </p>
           
-          <div className="mt-12 pt-8 border-t border-gray-800 w-full text-center">
-            <p className="text-gray-500 text-sm font-light">
+          <div className="mt-12 pt-8 border-t border-warm-white/10 w-full text-center">
+            <p className="text-warm-white/60 text-sm font-light">
               © 2025 Freeborn Capital. All rights reserved.
             </p>
           </div>

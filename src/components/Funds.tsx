@@ -26,16 +26,16 @@ const Funds = () => {
               </p>
               
               <div>
-                <h4 className="font-thin text-gray-900 mb-3 text-sm tracking-wide">Highlights:</h4>
-                <ul className="text-gray-600 space-y-2 text-sm font-light">
+                <h4 className="font-thin text-indigo-dye mb-3 text-sm tracking-wide">Highlights:</h4>
+                <ul className="text-indigo-dye/80 space-y-2 text-sm font-light">
                 <li>• Acquire boutique hotels, lodges, and retreat centers (10+ rooms, expansion potential)</li>
                 <li>• Target locations: Lake Atitlán (Guatemala), Sacred Valley (Peru), Diamante Valley (Costa Rica), Colombia, Panama</li>
                 </ul>
               </div>
               
               <div>
-                <h4 className="font-thin text-gray-900 mb-3 text-sm tracking-wide">Value-Add Strategy:</h4>
-                <ul className="text-gray-600 space-y-2 text-sm font-light">
+                <h4 className="font-thin text-indigo-dye mb-3 text-sm tracking-wide">Value-Add Strategy:</h4>
+                <ul className="text-indigo-dye/80 space-y-2 text-sm font-light">
                 <li>• Operational optimization (GROWTHSTAR Scaling)</li>
                 <li>• Premium villa development model</li>
                 <li>• Anchor asset enhancements with biophilic design</li>
