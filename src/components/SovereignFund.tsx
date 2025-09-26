@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { Mail, ArrowRight, Shield, TrendingUp, Globe } from 'lucide-react';
+import React, { useEffect } from 'react';
+import { Mail, Shield, TrendingUp, Globe } from 'lucide-react';
 
 const SovereignFund = () => {
-  const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  useEffect(() => {
+    // Load the GHL form embed script
+    const script = document.createElement('script');
+    script.src = 'https://link.growthstar.app/js/form_embed.js';
+    script.async = true;
+    document.body.appendChild(script);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      // Handle email submission logic here
-      console.log('Email submitted:', email);
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setEmail('');
-      }, 3000);
-    }
-  };
+    return () => {
+      // Cleanup script on component unmount
+      const existingScript = document.querySelector('script[src="https://link.growthstar.app/js/form_embed.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+    };
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary-light to-primary-contrast">
@@ -34,7 +34,7 @@ const SovereignFund = () => {
               Partnering with sovereign wealth funds and institutional investors to acquire and develop premium assets across emerging markets, focusing on sustainable growth and long-term value creation.
             </p>
             
-            {/* Email Capture Form */}
+            {/* GHL Email Capture Form */}
             <div className="max-w-md mx-auto">
               <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                 <div className="flex items-center justify-center mb-4">
@@ -45,34 +45,26 @@ const SovereignFund = () => {
                   Get exclusive updates on investment opportunities and fund developments
                 </p>
                 
-                {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="relative">
-                      <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email address"
-                        className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-interactive-primary focus:border-transparent transition-all duration-200"
-                        required
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-full bg-interactive-primary hover:bg-interactive-primary-hover text-text-on-gold px-6 py-3 rounded-lg font-medium flex items-center justify-center transition-all duration-200 group"
-                    >
-                      <span>Get Updates</span>
-                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
-                    </button>
-                  </form>
-                ) : (
-                  <div className="text-center py-4">
-                    <div className="bg-green-500/20 border border-green-400/30 rounded-lg p-4">
-                      <p className="text-green-300 font-medium">Thank you for subscribing!</p>
-                      <p className="text-green-200/80 text-sm mt-1">We'll keep you updated on our latest opportunities.</p>
-                    </div>
-                  </div>
-                )}
+                <div className="w-full h-64">
+                  <iframe 
+                    src="https://link.growthstar.app/widget/form/5jukM2839sdYuefAaZyq" 
+                    style={{width:'100%',height:'100%',border:'none',borderRadius:'3px'}} 
+                    id="inline-5jukM2839sdYuefAaZyq" 
+                    data-layout="{'id':'INLINE'}" 
+                    data-trigger-type="alwaysShow" 
+                    data-trigger-value="" 
+                    data-activation-type="alwaysActivated" 
+                    data-activation-value="" 
+                    data-deactivation-type="neverDeactivate" 
+                    data-deactivation-value="" 
+                    data-form-name="FC-Sovereignty-emails" 
+                    data-height="undefined" 
+                    data-layout-iframe-id="inline-5jukM2839sdYuefAaZyq" 
+                    data-form-id="5jukM2839sdYuefAaZyq" 
+                    title="FC-Sovereignty-emails"
+                  >
+                  </iframe>
+                </div>
               </div>
             </div>
           </div>
